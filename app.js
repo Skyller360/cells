@@ -56,8 +56,10 @@ for (var i = 0; i < 9; i++) {
 	}
 }
 
-console.log(cells);
+// console.log(cells[0]);
 
-for (var i = 0; i < cells.length; i++) {
-	cells[i].checkSiblings(cells);
-}
+cells[8].checkSiblings(cells);
+
+// for (var i = 0; i < cells.length; i++) {
+// 	cells[i].checkSiblings(cells);
+// }

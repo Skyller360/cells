@@ -21,11 +21,34 @@ Cell.prototype.create = function(){
 
 Cell.prototype.checkSiblings = function(cells){
 	var _self = this;
-
+	var siblings = 0;
 	for (var i = 0; i < cells.length; i++) {
-		if (_self.x == (cells[i].x - 10) && _self.y == cells[i].y) {
-			console.log('voisin');
-			// console.log(cells[i]);
-		}	
+		
+		if ( (_self.x + 10) == cells[i].x  && _self.y == cells[i].y) {
+			siblings++;
+		}
+		if ( (_self.x - 10) == cells[i].x && _self.y == cells[i].y){
+			siblings ++;
+		}
+		if ( _self.x == cells[i].x && (_self.y + 10) == cells[i].y ) {
+			siblings++;
+		}
+		if ( _self.x == cells[i].x && (_self.y - 10) == cells[i].y ) {
+			siblings++;
+		}
+		if ( (_self.x + 10) == cells[i].x && ( _self.y + 10) == cells[i].y ) {
+			siblings++;
+		}
+		if ( (_self.x + 10) == cells[i].x && (_self.y - 10) == cells[i].y ) {
+			siblings++;
+		}
+		if ( (_self.x - 10) == cells[i].x && (_self.y + 10) == cells[i].y ) {
+			siblings++;
+		}
+		if ( (_self.x - 10) == cells[i].x && (_self.y - 10) == cells[i].y ) {
+			siblings++;
+		}
 	}
+
+	console.log(siblings);
 }
