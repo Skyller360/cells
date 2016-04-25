@@ -3,17 +3,18 @@ var Cell = function(x,y){
 	this.x = x;
 	this.y = y;
 
-	this.create();
+	// this.create();
 
 	return this;
 }
 
-Cell.prototype.create = function(){
+Cell.prototype.create = function(cells){
 	var _self = this;
 
 	context.beginPath();
 	context.rect(_self.x, _self.y, 10, 10);
-	context.fillStyle = 'red';
+	// context.fillStyle = 'red';
+	_self.checkSiblings(cells);
 	context.fill();
 	context.closePath();
 
@@ -22,8 +23,9 @@ Cell.prototype.create = function(){
 Cell.prototype.checkSiblings = function(cells){
 	var _self = this;
 	var siblings = 0;
+
 	for (var i = 0; i < cells.length; i++) {
-		
+
 		if ( (_self.x + 10) == cells[i].x  && _self.y == cells[i].y) {
 			siblings++;
 		}
@@ -50,5 +52,32 @@ Cell.prototype.checkSiblings = function(cells){
 		}
 	}
 
-	console.log(siblings);
+	_self.judgment(siblings);
+
+}
+
+Cell.prototype.judgment = function(siblings){
+
+	var _self = this;
+	// console.log(siblings);
+	if (siblings <= 1) {
+
+		// console.log('solitude');
+		// console.log(_self);
+		context.fillStyle = 'white';
+
+	} else if(siblings >= 4){
+
+		// console.log('surpopulation');
+		// console.log(_self);
+		context.fillStyle = 'white';
+
+	} else{
+
+		// console.log('survit ou nait');
+		// console.log(_self);
+		context.fillStyle = 'red';
+
+	}
+
 }
