@@ -21,9 +21,11 @@ Cell.prototype.create = function(){
 
 Cell.prototype.checkSiblings = function(cells){
 	var _self = this;
-	console.log(cells);
-	if (_self.x + 10 == cells.x) {
-		console.log('voisin');
-	}
 
+	for (var i = 0; i < cells.length; i++) {
+		if (_self.x == (cells[i].x - 10) && _self.y == cells[i].y) {
+			console.log('voisin');
+			// console.log(cells[i]);
+		}	
+	}
 }

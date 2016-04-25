@@ -41,13 +41,23 @@ requestAnimationFrame(gridW);
 var x = canvas.width/2;
 var y = canvas.height/2;
 
-for (var i = 0; i < 4; i++) {
+for (var i = 0; i < 9; i++) {
 	
 	var cell = new Cell(x,y);
 	x += 10;
 	cells.push(cell);
+
+	if (i == 2) {
+		y -= 10;
+		x = canvas.width/2;
+	} else if(i == 5){
+		y = (canvas.height/2) + 10;
+		x = canvas.width/2;
+	}
 }
 
+console.log(cells);
+
 for (var i = 0; i < cells.length; i++) {
-	cells[i].checkSiblings(cells[i]);
+	cells[i].checkSiblings(cells);
 }
