@@ -61,24 +61,12 @@ Cell.prototype.judgment = function(siblings){
 
 	var _self = this;
 	// console.log(siblings);
-	if (siblings <= 1) {
-
-		// console.log('solitude');
-		// console.log(_self);
-		context.fillStyle = 'white';
-
-	} else if(siblings >= 4){
-
-		// console.log('surpopulation');
-		// console.log(_self);
-		context.fillStyle = 'white';
-
-	} else{
-
-		// console.log('survit ou nait');
-		// console.log(_self);
+	if (siblings == 2 || siblings == 3) {
+		console.log('survit ou nait');
 		context.fillStyle = 'red';
 
+	} else{
+		context.fillStyle = 'white';
 	}
 
 }

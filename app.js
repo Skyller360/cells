@@ -58,34 +58,14 @@ function init() {
 
 var count = 0;
 
-x = 600;
-y = 800;
-
 function animate(){
+			
+	var cell = new Cell(400, 310);
 
-
-	if (count % 180 == 0) {
-		
-		for (var i = 0; i < canvas.width; i++) {
-			console.log(y);
-			count = 0;
-			var cell = new Cell(x,y);
-			x += 10;
-			cells.push(cell);
-			if (x >= canvas.width) {
-				x = 0;
-				y += 10;
-			}
-			if(y >= canvas.height){
-				x = 0;
-				y = 0;
-			}
-			cell.create(cells);
-		}
-	}
+	cells.push(cell);
+	cell.create(cells);
 
 	requestAnimationFrame(animate);
-	count++;
 }
 
 init();
