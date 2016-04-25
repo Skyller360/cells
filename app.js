@@ -36,23 +36,57 @@ var gridH = function(){
 	}
 }
 
-requestAnimationFrame(gridW);
-
 var x = canvas.width/2;
 var y = canvas.height/2;
 
-for (var i = 0; i < 4; i++) {
-	
-	var cell = new Cell(x,y);
-	x += 10;
-	cells.push(cell);
+var cell = new Cell(400,300);
+var cell2 = new Cell(390,310);
+var cell3 = new Cell(410,310);
+var cell4 = new Cell(400,320);
+cells.push(cell, cell2, cell3, cell4);
 
-	if (i == 1) {
-		y -= 10;
-		x = canvas.width/2;
-	} 
-}
 
 for (var i = 0; i < cells.length; i++) {
 	cells[i].create(cells);
 }
+
+/*requestAnimationFrame(gridW);*/
+
+function init() {
+	gridW();
+}
+
+var count = 0;
+
+x = 600;
+y = 800;
+
+function animate(){
+
+
+	if (count % 180 == 0) {
+		
+		for (var i = 0; i < canvas.width; i++) {
+			console.log(y);
+			count = 0;
+			var cell = new Cell(x,y);
+			x += 10;
+			cells.push(cell);
+			if (x >= canvas.width) {
+				x = 0;
+				y += 10;
+			}
+			if(y >= canvas.height){
+				x = 0;
+				y = 0;
+			}
+			cell.create(cells);
+		}
+	}
+
+	requestAnimationFrame(animate);
+	count++;
+}
+
+init();
+animate();

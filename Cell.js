@@ -16,6 +16,7 @@ Cell.prototype.create = function(cells){
 	// context.fillStyle = 'red';
 	_self.checkSiblings(cells);
 	context.fill();
+	context.stroke();
 	context.closePath();
 
 }
@@ -51,7 +52,7 @@ Cell.prototype.checkSiblings = function(cells){
 			siblings++;
 		}
 	}
-
+	// console.log(siblings);
 	_self.judgment(siblings);
 
 }
